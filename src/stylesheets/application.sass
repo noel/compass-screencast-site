@@ -1,0 +1,83 @@
+// Here is where you can define your constants for your application and to configure the blueprint framework.
+// Feel free to delete these if you want keep the defaults:
+
+!blueprint_grid_columns = 24
+!blueprint_container_size = 950px
+!blueprint_grid_margin  = 10px
+
+// Use this to calculate the width based on the total width.
+// Or you can set !blueprint_grid_width to a fixed value and unset !blueprint_container_size -- it will be calculated for you.
+!blueprint_grid_width   = (!blueprint_container_size + !blueprint_grid_margin) / !blueprint_grid_columns - !blueprint_grid_margin
+
+// Import all the default blueprint modules so that we can access their mixins.
+@import blueprint
+
+*
+  :margin 0
+  :padding 0
+
+html, body, #wrap 
+  :height 100%
+
+body > #wrap
+  :height auto
+  :min-height 100%
+
+body
+  :font
+    :family Verdana
+    :size 10pt
+  :background #123
+  
+#header
+  +column(24, true)
+  :background #fff
+  :margin 0 auto
+  :padding 10px 5px
+  h1,ul
+    :margin 0
+  #menu 
+    :margin-top 5px
+    & ul li
+      :list-style none
+      :display inline
+      :margin-right 1em
+    
+#wrap
+  +container
+  :padding-top 1em
+
+#content
+  +column(24, true)
+  :background #ddd
+  :overflow hidden
+  :padding-top 20px
+  :padding-bottom 100px  
+
+  #col_1
+    +column(6)
+    :background #ffa
+    :padding-top 20px
+    :padding-bottom 20px
+    h4, p
+      :padding-left 20px
+      :padding-right 20px
+
+  #col_2
+    +column(18,true)
+    :padding-top 20px
+    :padding-bottom 20px
+    :background #2fa
+    h3, p
+      :padding-left 20px
+      :padding-right 20px
+
+#footer
+  :width 100%
+  :text-align center
+  :background #AFC9FC
+  :position relative
+  :padding-top 30px
+  :margin-top -100px
+  :height 100px
+  :clear both
